@@ -54,6 +54,23 @@ namespace TutorialASP
 
             app.UseMvc(routes =>
             {
+
+                routes.MapRoute(
+                    name: "test",
+                    template: "test/{year}/{month}",
+                    defaults: new { controller = "Movies", action = "ByReleaseDate" }
+                );
+                
+                routes.MapRoute(
+                    name: "releasedMovies",
+                    template: "{controller=Movies}/{action=ByReleaseDate}/{year}/{month}"
+                );
+                /*
+                routes.MapRoute(
+                    name: "blog",
+                    template: "Blog/{**article}",
+                    defaults: new { controller = "Blog", action = "ReadArticle" });
+                */
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
