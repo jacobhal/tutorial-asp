@@ -1,0 +1,18 @@
+﻿@model TutorialASP.ViewModels.AllCustomersViewModel
+
+<h2>Customers</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>There are no customers.</p>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
+

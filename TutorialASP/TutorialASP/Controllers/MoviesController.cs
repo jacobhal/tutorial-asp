@@ -12,6 +12,18 @@ namespace TutorialASP.Controllers
 {
     public class MoviesController : Controller
     {
+        public IActionResult AllMovies()
+        {
+            var movies = new List<Movie>
+            {
+                new Movie { Name = "Shrek" },
+                new Movie { Name = "Star Wars" }
+            };
+
+            var viewModel = new AllMoviesViewModel { Movies = movies };
+
+            return View(viewModel);
+        }
         // GET: /<controller>/random
         public IActionResult Random()
         {

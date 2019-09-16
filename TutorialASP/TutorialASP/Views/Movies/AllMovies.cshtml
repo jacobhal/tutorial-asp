@@ -1,0 +1,17 @@
+﻿@model TutorialASP.ViewModels.AllMoviesViewModel
+
+<h2>Movies</h2>
+
+@if (Model.Movies.Count == 0)
+{
+    <p>There are no movies.</p>
+}
+else
+{
+    <ul>
+        @foreach (var movie in Model.Movies)
+        {
+            <li>@movie.Name</li>
+        }
+    </ul>
+}
