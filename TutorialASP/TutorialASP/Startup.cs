@@ -58,7 +58,8 @@ namespace TutorialASP
                 routes.MapRoute(
                     name: "test",
                     template: "test/{year}/{month}",
-                    defaults: new { controller = "Movies", action = "ByReleaseDate" }
+                    defaults: new { controller = "Movies", action = "ByReleaseDate" },
+                    constraints: new { year = @"\d{4}", month =  @"\d{2}"}
                 );
                 
                 routes.MapRoute(

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TutorialASP.Models;
+using TutorialASP.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,14 +15,26 @@ namespace TutorialASP.Controllers
         // GET: /<controller>/random
         public IActionResult Random()
         {
-            var movie = new MovieModel() { Name = "Shrek" };
+            var movie = new Movie() { Name = "Shrek" };
 
-            //return Content("Hej");
+            var customers = new List<Customer>
+            {
+                new Customer { Name = "C1" },
+                new Customer { Name = "C2" }
+            };
+
+            var viewModel = new RandomMovieViewModel { Movie = movie, Customers = customers };
+
+            // This is what return View(movie) does
+            //var viewResult = new ViewResult();
+            //viewResult.ViewData.Model
+
+            //return Content("Hej ");
             //return NotFound();
             //return new EmptyResult();
             //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
 
-            return View(movie);
+            return View(viewModel);
         }
 
         public IActionResult Edit(int id)
